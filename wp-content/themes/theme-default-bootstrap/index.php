@@ -62,7 +62,7 @@
           'posts_per_page' => 2,
           'category__not_in' => array(7),
           'category__in' => array(6),
-          'offset' => 1,
+          // 'offset' => 1,
         );
 
         $secundarias = new WP_Query($args);
@@ -75,6 +75,37 @@
           endwhile;
           wp_reset_postdata();
         endif;
+        ?>
+      </div>
+
+      <div class="row">
+        <?php
+        $tamanho = 'col-md-12';
+        $op_content = 'destaque';
+
+        $itens = get_categories(array('include' => '6'));
+
+        foreach ($itens as $item):
+          $args = array(
+            'category__in' => $item->cat_Id,
+            'posts_per_page' => 1,
+          );
+
+          $consulta = new WP_Query($args);
+          if ($consulta->have_posts()):
+            while ($consulta->have_posts()):
+              $consulta->the_post();
+        ?>
+              <div class="<?php echo $tamanho; ?>">
+                <?php get_template_part('content', $op_content); ?>
+              </div>
+        <?php
+            $tamanho = 'col-md-6';
+            $op_content = 'secondary';
+            endwhile;
+            wp_reset_postdata();
+          endif;
+        endforeach;
         ?>
       </div>
     </div>

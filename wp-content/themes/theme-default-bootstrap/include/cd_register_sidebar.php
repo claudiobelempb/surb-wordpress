@@ -11,9 +11,6 @@ if (function_exists('register_sidebar')) {
             'after_title' => '</h2>',
         )
     );
-};
-
-if (function_exists('register_sidebar')) {
     register_sidebar(
         array(
             'name' => 'Barra Lateral 2',

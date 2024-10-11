@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main class="container mt-5">
+  <?php get_sidebar('2') ?>
   <section class="introduction">
     <h1 class="display-4">
       Your Name

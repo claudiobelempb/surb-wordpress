@@ -2,9 +2,9 @@
 /*Função para carregamentos dos scripts*/
 function cd_load_styles()
 {
-    wp_enqueue_style('template', get_template_directory_uri().'/assets/css/templates.css', array(), '1.0', 'all');
     wp_enqueue_style('bootstrap', get_template_directory_uri(). './assets/css/bootstrap.min.css', array(), '5.1.0', 'all');
     wp_enqueue_style('fontawesome', get_template_directory_uri().'/assets/css/fontawesome.min.css', array(), null, 'all');
+    wp_enqueue_style('template', get_template_directory_uri().'/assets/css/templates.css', array(), '1.0', 'all');
 }
 
 function cd_load_scripts()

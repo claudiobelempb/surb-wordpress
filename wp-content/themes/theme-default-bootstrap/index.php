@@ -41,6 +41,21 @@
         <?php
         endif
         ?>
+
+
+        <?php
+        $destaque = new WP_Query('type=post&posts_per_page=1&cat=6');
+        if ($destaque->have_posts()):
+          while ($destaque->have_posts()) :
+        ?>
+            <?php get_template_part('content', 'destaque') ?>
+        <?php
+            $destaque->the_post();
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+
       </div>
     </div>
   </section>

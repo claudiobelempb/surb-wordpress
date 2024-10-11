@@ -56,6 +56,26 @@
         endif;
         ?>
 
+        <?php
+        $args = array(
+          'post_type' => 'post',
+          'posts_per_page' => 2,
+          'category__not_in' => array(7),
+          'category__in' => array(6),
+          'offset' => 1,
+        );
+
+        $secundarias = new WP_Query($args);
+        if ($secundarias->have_posts()):
+          while ($secundarias->have_posts()) :
+        ?>
+            <?php get_template_part('content', 'secontary') ?>
+        <?php
+            $secundarias->the_post();
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
       </div>
     </div>
   </section>
